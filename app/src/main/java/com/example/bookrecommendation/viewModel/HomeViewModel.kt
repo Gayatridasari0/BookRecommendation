@@ -16,8 +16,8 @@ import java.io.IOException
 
 class HomeViewModel : ViewModel() {
     var isProgress = ObservableField(false)
-    var booksData = ArrayList<Book?>()
-    var recommendationData = ArrayList<Recommendations?>()
+    var booksData = ArrayList<Book>()
+    var recommendationData = ArrayList<Recommendations>()
 
     private val _booksResponse = MutableLiveData<Books?>()
     val booksResponse :LiveData<Books?> = _booksResponse

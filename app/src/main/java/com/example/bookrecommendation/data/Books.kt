@@ -1,11 +1,14 @@
 package com.example.bookrecommendation.data
+import com.example.bookrecommendation.R
+import com.example.bookrecommendation.utils.WidgetViewModel
 import com.google.gson.annotations.SerializedName
 
 
 data class Books(
     @SerializedName("books")
-    var books: List<Book?>?
+    var books: ArrayList<Book>?
 )
+
 
 data class Book(
     @SerializedName("author")
@@ -18,4 +21,8 @@ data class Book(
     var title: String?,
     @SerializedName("votes")
     var votes: Int?
-)
+): WidgetViewModel {
+    override fun layoutId(): Int {
+        return R.layout.book
+    }
+}

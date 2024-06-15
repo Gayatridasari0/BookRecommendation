@@ -8,15 +8,17 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.bookrecommendation.utils.setUpMultiViewRecyclerAdapter
+import com.example.bookrecommendation.BR
 import com.example.bookrecommendation.R
-import com.example.bookrecommendation.adapter.RecommendationAdapter
+import com.example.bookrecommendation.data.Book
 import com.example.bookrecommendation.data.Recommendations
 import com.example.bookrecommendation.databinding.FragmentBookBinding
 import com.example.bookrecommendation.utils.WidgetViewModel
 import com.example.bookrecommendation.viewModel.HomeViewModel
 
 
-class BookFragment : Fragment(), RecommendationAdapter.CustomRecommendClickListener {
+class BookFragment : Fragment(){
 
     private val viewModel: HomeViewModel by viewModels()
     private lateinit var _binding : FragmentBookBinding
@@ -78,10 +80,5 @@ class BookFragment : Fragment(), RecommendationAdapter.CustomRecommendClickListe
 
     }
 
-    override fun cardClicked(recommend: Recommendations?) {
-        bundle.putString("bookSearch",recommend?.title)
-//        bundle.putString("bookSearch",Gson().toJson(recommend))
-        findNavController().navigate(R.id.bookFragment)
-    }
 
 }

@@ -7,9 +7,9 @@
         name="vm"
         type="com.example.bookrecommendation.viewModel.HomeViewModel" />
 
-        <variable
-            name="myAdapter"
-            type="com.example.bookrecommendation.adapter.RecommendationAdapter" />
+
+        <import type="android.view.View"/>
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -52,7 +52,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_recommend"
-            android:adapter="@{myAdapter}"
             tools:listitem="@layout/book"
             android:visibility="@{vm.isProgress()?View.GONE:View.VISIBLE}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
