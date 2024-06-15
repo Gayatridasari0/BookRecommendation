@@ -37,7 +37,7 @@ interface MyApiInterface {
     @GET("home")
     suspend fun getBooks(): Response<Books?>
 
-    @POST("recommend")
+    @POST("recommend_books")
     suspend fun getRecommendations(@Body reqBody: RecommendationReq): Response<RecommendationList?>
 
 

@@ -20,6 +20,19 @@
         tools:context=".ui.BookFragment">
 
         <!-- TODO: Update blank fragment layout -->
+
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="gone"
+            android:visibility="@{vm.isProgress()?View.VISIBLE:View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -28,6 +41,7 @@
             android:textSize="30dp"
             android:id="@+id/tv_recommend"
             android:layout_marginTop="20dp"
+            android:visibility="@{vm.isProgress()?View.GONE:View.VISIBLE}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -40,6 +54,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_recommend"
             android:adapter="@{myAdapter}"
             tools:listitem="@layout/book"
+            android:visibility="@{vm.isProgress()?View.GONE:View.VISIBLE}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
             android:id="@+id/rv_books">
